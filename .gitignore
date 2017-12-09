@@ -1,0 +1,15 @@
+
+*.o
+*.swp
+*.a
+
+./bin/*
+./objects/*
+./dep/*
+build/
+
+./tests/test_bin/*
+./tests/objects/*
+
+*.swp
+
