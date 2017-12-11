@@ -10,7 +10,7 @@ This is an implementation of continuous connectivity from [1] and [2].
 Requirements
 ----
 -A gcc compiler that supports c++11   
--OpenMP
+-OpenMP  
 -The spherical harmonics library from [here](https://github.com/google/spherical-harmonics)  
 -Armadillo from [here](http://arma.sourceforge.net/)  
 
