@@ -12,9 +12,17 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops -fopenmp")
 #otherwise -rdynamic is set, linking EVERYTHING from the original libraries.
 #SET(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 #consider -ffast-math
-add_definitions(-std=c++11)
+#add_definitions(-std=c++11)
 
-# setup output directories
+if (CMAKE_VERSION VERSION_LESS "3.1")
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set (CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS}")
+  endif ()
+else ()
+  set (CMAKE_CXX_STANDARD 11)
+endif ()
+
+## setup output directories
 if (CUSTOM_OUTPUT_PREFIX)
   message(STATUS "custom output prefix set to " ${CUSTOM_OUTPUT_PREFIX})
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CUSTOM_OUTPUT_PREFIX}/lib)
@@ -29,17 +37,18 @@ endif()
 # additional CMake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-if(CUSTOM_PREFIX)
-  message(STATUS "custom prefix set to " ${CUSTOM_PREFIX})
-  set(CMAKE_LIBRARY_PATH "${CUSTOM_PREFIX}/lib")
-  set(CMAKE_LIBRARY_PATH "${CUSTOM_PREFIX}/lib64")
-  set(CMAKE_INCLUDE_PATH "${CUSTOM_PREFIX}/include")
-endif()
+#if(CUSTOM_PREFIX)
+#  message(STATUS "custom prefix set to " ${CUSTOM_PREFIX})
+#  set(CMAKE_LIBRARY_PATH "${CUSTOM_PREFIX}/lib")
+#  set(CMAKE_LIBRARY_PATH "${CUSTOM_PREFIX}/lib64")
+#  set(CMAKE_INCLUDE_PATH "${CUSTOM_PREFIX}/include")
+#endif()
 
 find_package(OpenMP)
 if (NOT OPENMP_FOUND)
     message(ERROR " OpenMP not found")
 endif()
+
 #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 
@@ -88,7 +97,7 @@ add_library(c3 ${c3_sources} ${c3_headers})
 
 add_executable(c3_main src/c3/main.cpp)
 target_link_libraries(c3_main c3 MeshLib utils trk spherical_harmonics)
-message(STATUS "custom output prefix set to " ${CUSTOM_OUTPUT_PREFIX})
+#message(STATUS "custom output prefix set to " ${CUSTOM_OUTPUT_PREFIX})
 #target_link_libraries(gspn ${OPEN_BLAS} ${ARMADILLO_LIB})
 #target_link_libraries(gspn ${ARMADILLO_LIBRARIES})
 
