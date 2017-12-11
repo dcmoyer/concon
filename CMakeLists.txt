@@ -44,6 +44,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 #  set(CMAKE_INCLUDE_PATH "${CUSTOM_PREFIX}/include")
 #endif()
 
+#
+# third party
+#
+
 find_package(OpenMP)
 if (NOT OPENMP_FOUND)
     message(ERROR " OpenMP not found")
@@ -65,7 +69,18 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 #link_directories(${CMAKE_LIBRARY_PATH})
 #link_directories(/usr/local/fftw)
 
+#
+# local third party
+#
+
+file(GLOB sh_sources third_party/spherical_harmonics/sh/spherical_harmonics.cc)
+file(GLOB sh_headers third_party/spherical_harmonics/sh/*.h)
+add_library(spherical_harmonics ${sh_sources} ${sh_headers})
+
+#
 # collect sources
+#
+
 file(GLOB MeshLib_sources src/MeshLib/*.cpp)
 file(GLOB MeshLib_headers src/MeshLib/*.hpp src/ops/*.h)
 
