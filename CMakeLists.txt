@@ -55,12 +55,12 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 # setup Armadillo
 
 #find_package(Armadillo REQUIRED)
-find_library(ARMADILLO_LIB NAMES libarmadillo.a armadillo PATHS "${CMAKE_LIBRARY_PATH}")
-message(STATUS "armadillo linked from " ${ARMADILLO_LIB})
-
-find_path(ARMADILLO_INC_DIR NAMES armadillo PATHS "${CMAKE_INCLUDE_PATH}")
-include_directories(${ARMADILLO_INC_DIR})
-message(STATUS "armadillo include path " ${ARMADILLO_INC_DIR})
+#find_library(ARMADILLO_LIB NAMES libarmadillo.a armadillo PATHS "${CMAKE_LIBRARY_PATH}")
+#message(STATUS "armadillo linked from " ${ARMADILLO_LIB})
+#
+#find_path(ARMADILLO_INC_DIR NAMES armadillo PATHS "${CMAKE_INCLUDE_PATH}")
+#include_directories(${ARMADILLO_INC_DIR})
+#message(STATUS "armadillo include path " ${ARMADILLO_INC_DIR})
 
 #link_directories(${CMAKE_LIBRARY_PATH})
 #link_directories(/usr/local/fftw)
