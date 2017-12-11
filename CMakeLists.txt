@@ -102,6 +102,7 @@ file(GLOB headers src/*.hpp src/struct/*.hpp src/dist_funcs/*.hpp src/ops/*.hpp)
 #
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/third_party/spherical_harmonics/)
 
 # compile and link
 add_library(MeshLib ${MeshLib_sources} ${MeshLib_headers})
