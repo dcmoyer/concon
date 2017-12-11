@@ -11,6 +11,20 @@ Requirements
 ----
 -A gcc compiler that supports c++11   
 -OpenMP  
--The spherical harmonics library from [here](https://github.com/google/spherical-harmonics)  
+-The Eigen library from [http://eigen.tuxfamily.org/](http://eigen.tuxfamily.org/). This is only used by third party software.
+
+Third Party Software
+----
+
+We include the spherical harmonics package from
+[here](https://github.com/google/spherical-harmonics). Their 
+original build instructions used Bazel; we have created a short cmake recipe.
+It is otherwise unchanged. Please see their License file for the corresponding
+copyright information (Apache 2).
+
+License
+----
+
+Please see our License file (MIT).
 
 
