@@ -20,7 +20,7 @@ We include the spherical harmonics package from
 [here](https://github.com/google/spherical-harmonics). Their 
 original build instructions used Bazel; we have created a short cmake recipe.
 It is otherwise unchanged. Please see their License file for the corresponding
-copyright information (Apache 2).
+copyright information.
 
 License
 ----
