@@ -11,6 +11,6 @@ Requirements
 ----
 -A gcc compiler that supports c++11   
 -The spherical harmonics library from [here](https://github.com/google/spherical-harmonics)  
-
+-Armadillo from [here](http://arma.sourceforge.net/)  
 
 
