@@ -39,6 +39,7 @@
 #include <array>
 #include <functional>
 #include <memory>
+#include <vector>
 
 #include "sh/image.h"
 
