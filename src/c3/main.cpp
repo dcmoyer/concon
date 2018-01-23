@@ -164,9 +164,9 @@ int main(int argc, char *argv[]){
 
     if(verbose > 0)
       std::cout << "[c3/main] " << 
-        "Loading subj list from " << params["subj_file"] << std::endl;
+        "Loading subj list from " << params["subj_list"] << std::endl;
 
-    std::ifstream subj_input(params["subj_file"].c_str());
+    std::ifstream subj_input(params["subj_list"].c_str());
     std::string temp;
     while( subj_input >> temp ){
       subjects.push_back(temp);
