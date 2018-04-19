@@ -25,7 +25,7 @@
 #define TRACKSET_HPP
 
 #include <string>
-#include <cstring>
+#include <string.h>
 
 #include <vector>
 #include <iostream>
